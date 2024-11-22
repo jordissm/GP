@@ -8,8 +8,9 @@ from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 fig = plt.figure(figsize=(5, 5), dpi=300)
 ax = fig.add_subplot(111, projection='3d')
 ax.view_init(elev=0, azim=-90)  # Set a horizontal view angle
-fig.set_facecolor('black')
-ax.set_facecolor('black')
+background_color = (16./256, 18./256, 22./256)
+fig.set_facecolor(background_color)
+ax.set_facecolor(background_color)
 
 # Generate sphere data
 def generate_sphere(u_points=300, v_points=300):
