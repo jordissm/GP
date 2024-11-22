@@ -1,4 +1,4 @@
-# Hadron formation time cross-sections using Gaussian Processes
+# Hadron time-dependent cross-sections using Gaussian Processes
 <p align="center">
 <img src="logo/logo.png" alt="logo" width="500"/>
 </p>
