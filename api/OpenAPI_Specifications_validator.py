@@ -164,5 +164,5 @@ if __name__ == '__main__':
     
     # Validation
     #------------
-    OpenAPI_input_validator(specs_file_path, input_file_path, verbose=True)
+    OpenAPI_validator(specs_file_path, input_file_path, verbose=True)
 
