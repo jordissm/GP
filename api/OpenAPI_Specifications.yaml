@@ -1,0 +1,146 @@
+openapi: 3.0.3
+
+info:
+  title: Gaussian Process API
+  description: API for managing Gaussian Process hyperparameters and parameters.
+  version: 1.0.0
+  contact:
+    name: Jordi Salinas
+    email: jordis2@illinois.edu
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+
+paths:
+  /input/config.yaml:
+    put:
+      summary: Read Gaussian Process configuration parameters
+      description: Read the configuration file for Gaussian Process calculations.
+      requestBody:
+        description: Configuration file
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                GP_parameters:
+                  $ref: '#/components/schemas/GPParameters'
+                physics_parameters:
+                  $ref: '#/components/schemas/PhysicsParameters'
+                sampling_parameters:
+                  $ref: '#/components/schemas/SamplingParameters'
+      responses:
+        '200':
+          description: Configuration file read successfully
+        '400':
+          description: Invalid configuration file
+
+  /output/status.yaml:
+    get:
+      summary: Retrieve Gaussian Process status
+      description: Fetch the status of the Gaussian Process calculations.
+      responses:
+        '200':
+          description: Status of the calculations
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: Status of the calculations
+                    example: completed
+                  message:
+                    type: string
+                    description: Additional information
+                    example: Calculations completed successfully
+
+  /output/formation_times:
+    get:
+      summary: Retrieve Gaussian Process formation times
+      description: Fetch the formation times calculated by the Gaussian Process.
+      responses:
+        '200':
+          description: Formation times
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  formation_times:
+                    type: array
+                    items:
+                      type: number
+                    description: Formation times
+                    example: [0.0, 0.1, 0.2, 0.3, 0.4]
+
+components:
+  schemas:
+    GPParameters:
+      type: object
+      properties:
+        l:
+          type: number
+          description: Correlation length
+          default: 1.0
+          minimum: 0.01
+          maximum: 10.0
+          example: 1.0
+        kappa:
+          type: number
+          description: Amplitude
+          default: 10.0
+          minimum: 0.01
+          maximum: 100.0
+          example: 10.0
+        xi:
+          type: number
+          description: Small noise term
+          default: 1.0e-06
+          minimum: 1.0e-06
+          maximum: 1.0e-04
+          example: 1.0e-06
+    PhysicsParameters:
+      type: object
+      properties:
+        sigma_0:
+          type: number
+          description: Initial cross-section in units of mb
+          example: 0.0
+        sigma_f:
+          type: number
+          description: Final cross-section in units of mb
+          example: 1.0
+        production_time:
+          type: number
+          description: Production time in units of fm/c
+          example: 0.0
+        formation_time:
+          type: number
+          description: Formation time in units of fm/c
+          example: 1.0
+    SamplingParameters:
+      type: object
+      properties:
+        sigma_ratio:
+          type: array
+          items:
+            type: number
+          description: Cross-section domain
+          example: [0.01, 1]
+        number_of_points_in_domain:
+          type: integer
+          description: Number of points in the domain
+          default: 100
+          minimum: 10
+          maximum: 1000
+          example: 100
+        number_of_samples:
+          type: integer
+          description: Number of samples
+          default: 200
+          minimum: 1
+          maximum: 1000000
+          example: 200
