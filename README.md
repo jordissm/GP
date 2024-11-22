@@ -10,6 +10,7 @@ The following Python libraries are required for sucessful results:
 - pandas
 - matplotlib
 - openapi-core
+
 which can be installed through
 ```bash
 pip install pyyaml numpy pandas matplotlib openapi-core
