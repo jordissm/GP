@@ -1,4 +1,8 @@
 # Hadron formation time cross-sections using Gaussian Processes
+<p align="center">
+<img src="logo/logo.png" alt="logo" width="500"/>
+</p>
+
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 Tool for creating various functional forms for time-dependent cross-sections useful to understand hadron formation in a model independent fashion. For physics details, please refer to [arXiv:2501:XXXXX](www.arxiv.org/abs/2501.XXXXX).
