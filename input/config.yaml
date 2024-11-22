@@ -1,0 +1,18 @@
+---
+# Gaussian Process hyperparameters
+GP_parameters:
+  l: 1.0
+  kappa: 10.0
+  xi: 1.0e-06
+# Physics parameters
+physics_parameters:
+  sigma_0: 0.0
+  sigma_f: 1.0
+  production_time: 0.0
+  formation_time: 1.0
+# Sampling parameters
+sampling_parameters:
+  sigma_ratio: [0.01, 1]
+  number_of_points_in_domain: 100
+  number_of_samples: 200
+...
