@@ -8,7 +8,7 @@ from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 fig = plt.figure(figsize=(5, 5), dpi=300)
 ax = fig.add_subplot(111, projection='3d')
 ax.view_init(elev=0, azim=-90)  # Set a horizontal view angle
-background_color = (16./256, 18./256, 22./256)
+background_color = 'black'
 fig.set_facecolor(background_color)
 ax.set_facecolor(background_color)
 
@@ -57,7 +57,7 @@ ax.axis('off')
 
 # Save plot as an image file
 plt.tight_layout()
-plt.savefig('logo.png', transparent=False, bbox_inches = matplotlib.transforms.Bbox.from_extents(0.2,1.4,5.0,3), pad_inches=0)
+plt.savefig('logo.png', transparent=True, bbox_inches = matplotlib.transforms.Bbox.from_extents(0.2,1.4,5.0,3), pad_inches=0)
 
 # Display message for successful save
 print("Plot saved as 'logo.png'")
