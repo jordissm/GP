@@ -1,0 +1,25 @@
+# Ignore all
+*
+
+# Unignore all with extensions
+!*.*
+
+# Unignore all dirs
+!*/
+
+# Ignore local files
+.vscode/
+**/.DS_Store
+**/__pycache__/
+
+# Unignore important files
+!COPYING
+
+# Ignore `build` dir
+build/
+
+# Ignore output data
+output/**
+
+# Ignore validation files
+**/valid*.yaml
